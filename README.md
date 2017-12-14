@@ -14,6 +14,9 @@ Then i simply return the 5 closest parties and their ticket prices.
 
 Thankyou!
 
+Please not that for now if we put two events at the same location, my program considers those two and return the cheapest first, but 
+if needed this functionality can easily be altered as per requirements.
+
 QnA's
 1. How might you change your program if you needed to support multiple events at the
 same location?
