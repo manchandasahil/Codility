@@ -2,6 +2,7 @@ package Viagogo;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
 
 public class World {
 	ArrayList<Event> events = new ArrayList<Event>();
@@ -11,8 +12,14 @@ public class World {
 	int y = 0;
 	public static void main(String[] args) {
 		World w1 = new World();
+		System.out.println("Please input coordinates");
+		Scanner s = new Scanner(System.in);
+		String in = s.nextLine();
+		String[] input = in.split(",");
+		w1.x = Integer.parseInt(input[0]);
+		w1.y = Integer.parseInt(input[1]);
 	    w1.loadDemoData();
-	    w1.findEventandTickets(0, 0);
+	    w1.findEventandTickets();
 	    
 		
 		
@@ -32,7 +39,7 @@ public class World {
 		e3.addTicket(300);
 		Event e4 = new Event(-4,-9,004);
 		e4.addTicket(1);
-		e4.addTicket(0.67);
+		e4.addTicket(3263.67);
 		e4.addTicket(3000);
 		Event e5 = new Event(-2,-2,005);
 		e5.addTicket(100);
@@ -49,12 +56,13 @@ public class World {
 		events.add(e5);
 		events.add(e6);
 	}
-	public void findEventandTickets(int x,int y) {
+	public void findEventandTickets() {
 		for(Event e:events) {
 	    	e.setDistance(x, y);
 	    }
 	    Collections.sort(events);
 	    for(int i = 0;i<5 && i<events.size();i++) {
+	    	
 	    	Event c = events.get(i);
 	    	System.out.println(c + "- $" + c.getCheapestTicket() +", Distance "+ c.getDistance());
 	    }
